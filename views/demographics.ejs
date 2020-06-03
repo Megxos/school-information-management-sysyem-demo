@@ -1,0 +1,83 @@
+<%- include("partials/header") -%>
+
+<div class="container" >
+    <form action="/demographics/update" method="POST">
+        <h1 class="text-center">Demographics</h1>
+        <summary class="m-2">Please provide us with all the neccessary information so we can know you more</summary>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6"> 
+                    <label for="age">Age<span>*</span></label>
+                    <% var today = new Date()%>
+                    <% var age  = today.getFullYear() -  demographics.birthday.getFullYear()%>
+                    <input type="number" id="age" name="age" class="form-control" value="<%= age %>"
+                        required>
+                    <summary id="age-summary"><small></small></summary>
+                </div>
+                <div class="col-sm-6">
+                     <label for="birthday">Birthday</label>
+                     <% var dd = demographics.birthday.getDate() %>
+                    <%  if(dd < 10) dd="0" +dd %>
+                    <% var mm= demographics.birthday.getMonth()+1 %> 
+                    <% if(mm < 10) mm="0" +mm %>
+                     <% var yyyy= demographics.birthday.getFullYear() %>
+                     <% var birthday=mm + "/" + dd + "/" + yyyy %>
+                     <input type="date" id="birthday" name="birthday" value="<%= birthday%>" required class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="gender">Gender<span>*</span></label>
+                        <select name="gender" id="gender" class="form-control" value="<%= demographics.gender %>"
+                            required>
+                            <option value="">select...</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label for="religion">Religion<span>*</span></label>
+                    <select type="select" id="religion" name="religion" class="form-control"
+                        value="<%= demographics.religion %>" required>
+                        <option value="">select...</option>
+                        <option value="christianity">Christianity</option>
+                        <option value="islam">Islam</option>
+                        <option value="budist">Budist</option>
+                    </select>
+                </div>
+            </div> 
+        </div>
+       <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="phone">Phone<span>*</span></label>
+                    <input type="text" name="phone" minlength="11" maxlength="11"
+                         placeholder="Enter your primary phone number here"
+                        value="<%= demographics.phone %>" class="form-control" required>
+                </div>
+                <div class="col-sm-6">
+                    <label for="phone_sec">Phone (Secondary)</label>
+                    <input type="text" id="phone_sec" name="phone_sec" value="<%= demographics.phone_sec%>" minlength="11" maxlength="11" placeholder="Enter your secondary phone number here" class="form-control">
+                </div>
+            </div>
+       </div>
+       <div class="form-group">
+           <div class="row">
+               <div class="col-sm-12">
+                   <label for="address">Contact Address<span>*</span></label>
+                   <input type="address" id="address" name="address" value="<%= demographics.contact_address %>"
+                       placeholder="Your primary home address"
+                       class="form-control" required>
+               </div>
+           </div>
+       </div>
+      <button id="save" class="btn btn-secondary btn-block">Save</button>
+    </form>
+    <a href="/"><button class="btn btn-primary btn-sm m-2">Cancel</button></a>
+</div>
+
+<%- include("partials/footer") -%>

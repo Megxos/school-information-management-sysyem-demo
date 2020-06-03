@@ -1,0 +1,37 @@
+<%- include("partials/header") -%>
+
+<div class="container-fluid">
+    <div class="breadcrumb">
+        <a href="/dashboard" class="breadcrumb-item">/dashboard</a>
+        <a href="/payments" class="breadcrumb-item">payments</a>
+    </div>
+    <table class="table table-bordered m-auto" style="width: 90%">
+        <h1 class="text-center">Payment History</h1>
+        <thead>
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Description</th>
+                <th scope="col">Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> <% var date = new Date %>
+                    <%= date.toDateString()%>
+                </td>
+                <td>School Fees Payment</td>
+                <td>N54, 000.00</td>
+            </tr>
+            <tr>
+                <td> <% var date = new Date %>
+                    <%= date.toDateString()%>
+                </td>
+                <td>PTA Levy</td>
+                <td>N500.00</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<%- include("partials/footer") -%>

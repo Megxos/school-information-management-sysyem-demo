@@ -1,0 +1,70 @@
+<%- include("partials/header") -%>
+
+<div class="container" >
+    <form action="/register" method="POST">
+        <h1 class="text-center pb-3" style="font-weight: 600; color:#2f96ff;border-bottom: 1px solid #2f96ff;">Register
+        </h1>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="firstname">Firstname</label>
+                    <input type="text" id="firstname" name="firstname" placeholder="firstname" class="form-control" required>
+                </div>
+                <div class="col-sm-4">
+                    <label for="middlename">Middlename</label>
+                    <input type="text" id="middlename" name="middlename" placeholder="middlename" class="form-control">
+                </div>
+                <div class="col-sm-4">
+                    <label for="lastname">Lastname</label>
+                    <input type="text" id="lastname" name="lastname" placeholder="lastname" class="form-control"
+                        required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="username">Email</label>
+            <input type="email" name="username" id="username" autocomplete="email"
+                placeholder="Enter email address here" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="student_id">Student ID/Registration NO</label>
+                    <input type="text" id="student_id" name="student_id" placeholder="Enter student ID or Reg NO if available" class="form-control">
+                </div>
+                <div class="col-sm-6">
+                    <label for="current_level">Current Level / Grade</label>
+                    <input type="text" id="current_level" name="current_level" minlength="5" maxlength="16" placeholder="Your current stage/position"
+                        class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" autocomplete="password" minlength="5" maxlength="16"
+                placeholder="password" class="form-control"
+                required>
+                <summary><small id="password_summary"></small></summary>
+            <details>
+                <summary>Password Requirements</summary>
+                <ul>
+                    <li>Must not be less than five(5) characters</li>
+                    <li>Must contain at least one uppercase letter</li>
+                    <li>Must contain at least a number</li>
+                    <li>Must contain at least on symbol</li>
+                </ul>
+            </details>
+            <label for="confirm">Confirm password</label>
+            <input type="password" name="confirm" id="confirm" placeholder="confirm password" class="form-control"
+                required>
+                <summary><small id="confirm_summary"></small></summary>
+        </div> 
+        <input type="submit" id="register" value="Register" class="btn btn-block btn-success">
+    </form>
+    <div class="text-center">
+        <p class="text-center">or</p>
+        <p class="text-center"><a href="/login">Log In Instead</a></p>
+    </div>
+</div>
+
+<%- include("partials/footer") -%>

@@ -1,0 +1,25 @@
+<%- include("partials/header") -%>
+
+<div class="container" >
+    <form action="/login" method="POST">
+        <h1 class="text-center pb-3" style="font-weight: 600; color:#2f96ff;border-bottom: 1px solid #2f96ff;">Log In
+        </h1>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" name="username" id="firstname" autocomplete="firstname" placeholder="Enter Your Email Address here"
+                class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" autocomplete="password" placeholder="password" class="form-control">
+        </div>
+        <input type="submit" value="Log me in" class="btn btn-block btn-success">
+    </form>
+    <p><a href="/forgot"><small>forgot password?</small></a></p>
+    <div class="register">
+        <p class="text-center">or</p>
+        <p class="text-center"><a href="/register">Register</a></p>
+    </div>
+</div>
+
+<%- include("partials/footer") -%>

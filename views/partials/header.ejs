@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/myicons/interface.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,700;1,500&display=swap"
+        rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <title><%= current_page%></title>
+    <script src="/js/lib/jquery-3.4.1.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a06d2c416b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/hamburgers.min.css">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top" id="my-nav">
+        <a class="navbar-brand" href="/<%= current_page%>"><%= current_page.toUpperCase() %></a>
+        <button id="toggle-button" class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <div class="hamburger hamburger--vortex js-hamburger">
+                <div class="hamburger-box">
+                     <div class="hamburger-inner p-0"></div>
+                </div>                   
+            </div>
+            <style>
+                #toggle-button:focus{
+                    outline: none !important;
+                }
+            </style>
+             <script>
+                 $(".hamburger").on("click", function () {
+                     $(this).toggleClass("is-active")
+                 })
+             </script>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <% if ( currentUser){%>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/dashboard">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                     <li class="nav-item">
+                         <a href="/profile" class="nav-link active"><span><small><%= currentUser.username %></small>
+                                 </nav></span></a>
+                     </li>
+                <%}%>
+                <% if( currentUser == undefined ){%>
+                     <li class="nav-item">
+                         <a class="nav-link active" href="/login">Login</a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link active" href="/register">Register</a>
+                     </li>
+               <% } %>
+            </ul>
+        </div>
+    </nav>
+   <div class="alerts" style="margin-top: 60px;">
+       <div class="container">
+            <% if(error && error.length > 0){%>
+            <div id="error_alert" class="alert alert-danger flash animated text-center"><%= error%></div>
+            <% } %>
+            <% if(success && success.length > 0){%>
+            <div id="success_alert" class="alert alert-success  zoomIn animated faster text-center"><%= success %></div>
+            <% } %>
+            <script>
+                if ($("#success_alert").length > 0){
+                    hideAlert = () =>{
+                        $("#success_alert").fadeOut()
+                    }
+                    setTimeout(hideAlert, 4000)
+                }
+                if ($("#error_alert").length > 0){
+                    hideAlert = () =>{
+                        $("#error_alert").fadeOut()
+                    }
+                    setTimeout(hideAlert, 4000)
+                }
+            </script>
+       </div>
+   </div>

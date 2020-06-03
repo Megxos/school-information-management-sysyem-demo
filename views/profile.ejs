@@ -1,0 +1,80 @@
+<%- include("partials/header") -%>
+<link rel="stylesheet" href="/css/profile.css">
+    <div class="profile" >
+        <div class="container-fluid">
+            <div class="breadcrumb">
+                <a href="/dashboard" class="breadcrumb-item">/dashboard</a>
+                <a href="/profile" class="breadcrumb-item">profile</a>
+            </div>
+            <div class="profile_data p-2">
+                <div class="profile_photo m-2">
+                    <img src="/img/user.png" alt="profile_photo" class="rounded-circle" height=100 width=100>
+                </div>
+                 <p class="text-center"><a href="">Update Photo</a></p>
+                <div class="details text-center">
+                    <p>
+                        <span style="font-weight: 800;">Firstname:</span>
+                        <span><%= data.profile.firstname%></span>
+                    </p>
+                   <% if(data.profile.middlename.length > 0){%>
+                         <p>
+                             <span style="font-weight: 800;">Middlename:</span>
+                             <span><%= data.profile.middlename%></span>
+                         </p>
+                   <%} %>
+                    <p>
+                        <span style="font-weight: 800;">Lastname:</span>
+                        <span><%= data.profile.lastname %></span>
+                    </p>
+                    <p>
+                        <span style="font-weight: 800; overflow-wrap: break-word;">Current Grade/ Level:</span>
+                        <span><%= data.profile.current_level%></span> </p>
+                </div>
+            </div>
+            <div class="others">
+                <div class="row">
+                    <div class="col-md-6">
+                         <div class="demographics p-3">
+                             <h4 class="text-center mt-2 p-3"
+                                 style="background: linear-gradient(90deg, rgba(255, 255, 255, 1) 28%, rgba(243, 243, 243, 1) 100%);border-bottom: 1px solid grey;">
+                                 Demographics</h4>
+                             <p><span style="font-weight: 800;">Gender:</span>
+                                 <span><%= data.demographics.gender %></span></p>
+                             <p><span style="font-weight: 800;">Birthday:</span>
+                                 <span><%= data.demographics.birthday.toDateString() %></span></p>
+                             <p><span style="font-weight: 800;">Age:</span>
+                                 <span><%= data.demographics.age %></span></p>
+                             <p><span style="font-weight: 800;">Religion:</span>
+                                 <span><%= data.demographics.religion %></span></p>
+                             <p><span style="font-weight: 800;">Email: </span><span><%= data.username %></span>
+                             </p>
+                             <p>
+                                 <span style="font-weight: 800;">Phone:</span>
+                                 <span><%= data.demographics.phone %></span>
+                            </p>
+                             <p>
+                                 <span style="font-weight: 800;">Phone(sec):</span>
+                                 <span><%= data.demographics.phone_sec %></span>
+                            </p>
+                             <p><span style="font-weight: 800;">Contact Address:</span>
+                                 <span><%= data.demographics.contact_address %></span></p>
+                                 <a href="/demographics" class="text-center">
+                                    <button class="btn btn-secondary btn-small">Update</button>
+                                </a>
+                         </div>
+                    </div>
+                         <div class="col-md-6">
+                               <div class="last-result p-3" style="background: linear-gradient( 90deg,rgba(243, 243, 243, 1) 28%,rgba(255, 255, 255, 1)
+                        100%);">
+                                   <h4 class="text-center mt-2 p-3" style="background: linear-gradient( 90deg,rgba(243, 243, 243, 1) 28%,rgba(255, 255, 255, 1)
+                        100%);border-bottom: 1px solid grey;">Last Result</h4>
+                        <iframe src="/results" frameborder="0" style="height: 85%; width: 100%; overflow: auto;"></iframe>
+                               </div>
+                         </div>
+                    </div>
+              
+            </div>
+    </div>
+</div>
+
+<%- include("partials/footer") -%>
