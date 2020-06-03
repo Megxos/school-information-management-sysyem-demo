@@ -8,3 +8,7 @@ Make sure to install all packages (dependencies) from the package.json file else
 3. Mongoose
 4. Flash
 5. ejs
+6. express-session
+7. passport
+8. passport-local
+9. passport-local-mongoose
